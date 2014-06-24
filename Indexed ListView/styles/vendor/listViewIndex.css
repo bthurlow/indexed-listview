@@ -1,0 +1,47 @@
+.ListViewIndex.indexHolder{
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1002;
+    bottom: 0;
+    margin: auto;
+    display: table;
+}
+
+/*.ListViewIndex .index-item {
+background: rgba(255,255,255,0.6);
+padding: 0px 2px;
+}*/
+
+.ListViewIndex .index-item:first-child {
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+.ListViewIndex a.index-item {
+/*color: #555;*/
+}
+
+.ListViewIndex .index-item {
+    position: relative;
+    display: block;
+    padding: 0px 4px;
+    margin-bottom: -1px;
+    /*background-color: #fff;
+    border: 1px solid #ddd;*/
+    opacity: 0.7;
+    text-indent:0;
+    text-decoration:none;
+    font-size: 0.8em;
+}
+
+.ListViewIndex .index-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.km-flat .ListViewIndex .index-item {
+    font-size:0.7em;
+}

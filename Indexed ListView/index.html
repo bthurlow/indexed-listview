@@ -5,36 +5,45 @@
     <meta charset="utf-8" />
     <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
     <link href="styles/main.css" rel="stylesheet" />
+    <link href="styles/vendor/listViewIndex.css" rel="stylesheet" />
 
     <script src="cordova.js"></script>
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script src="scripts/vendor/chance.js"></script>
+    <script src="scripts/vendor/listViewIndex.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/login.js"></script>
     <script src="scripts/location.js"></script>
     <script src="scripts/weather.js"></script>
+    
 </head>
 <body>
     <!--Home View-->
     <div id="tabstrip-home"
         data-role="view"
-        data-title="Home">
+        data-title="Home" data-init="app.home.init" data-before-show="app.home.beforeShow">
         <header data-role="header">
             <div data-role="navbar">
                 <span data-role="view-title"></span>
                 <a id="skin-change" data-role="button" data-align="right" data-click="app.changeSkin">Flat</a>
             </div>
         </header>
-
-        <h3>Welcome!</h3>
-        <p>
-            Telerik AppBuilder&trade; enables you to build cross-platform device applications regardless of your
-            development platform by combining the convenience of a local development toolset with the
-            power and flexibility of the cloud.
-        </p>
-        <div class="welcome-image"></div>
+        <ul id="indexedListView"></ul>
+        <script id="indexedListViewHeaderTemplate" type="text/x-kendo-template">
+            <span id="#= value #">Group - #= value #</span>
+        </script>
+        <script id="indexedListViewTemplate" type="text/x-kendo-template">
+		#if(typeof(norecords) !== "undefined" && norecords){#
+			<h3 style="text-align: center;">#= title #</h3>
+		#}else{#
+			<a class="km-listview-link" data-transition="slide:left">
+				<strong>#= firstName ##= middleInit===null?"": " "+middleInit # #=lastName#</strong>
+			</a>
+		#}#
+	</script>
     </div>
 
     <!--Login View-->
